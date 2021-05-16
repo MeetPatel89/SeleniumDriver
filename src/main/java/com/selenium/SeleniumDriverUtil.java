@@ -14,4 +14,10 @@ public class SeleniumDriverUtil {
 		WebDriver driver = new ChromeDriver(options);
 		return driver;
 	}
+	
+	public static WebDriver launchBrowser(String url) {
+		WebDriver driver = launchDriver();
+		driver.navigate().to(url);
+		return driver;
+	}
 }
