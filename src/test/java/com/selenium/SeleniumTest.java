@@ -19,4 +19,22 @@ public class SeleniumTest {
 	  driver.quit();
   }
   
+  @Test
+  public void canClickButtonAndGetResult() {
+	  
+	  String url = "https://demoqa.com/buttons";
+	  String xpath = "//button[text()='Click Me']";
+	  String id = "dynamicClickMessage";
+	  
+	  WebDriver driver = SeleniumDriverUtil.launchBrowser(url);
+	  WebElement button = SeleniumDriverUtil.findElementByXPath(driver, xpath);
+	  button.click();
+	  
+	  WebElement element = SeleniumDriverUtil.findElementById(driver, id);
+	  String message = element.getText();
+	  
+	  assertEquals(message, "You have done a dynamic click");
+	  driver.quit();
+  }
+  
 }
