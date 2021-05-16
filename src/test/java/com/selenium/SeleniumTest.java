@@ -2,7 +2,9 @@ package com.selenium;
 
 import static org.testng.Assert.assertEquals;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class SeleniumTest {
@@ -16,4 +18,5 @@ public class SeleniumTest {
 	  assertEquals(driver.getCurrentUrl(), url);
 	  driver.quit();
   }
+  
 }
