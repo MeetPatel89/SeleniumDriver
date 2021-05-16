@@ -14,4 +14,4 @@ public class LaunchChrome2 {
 		driver.get("http://www.w3schools.com");
 		System.out.println(driver.getTitle());
 	}
-}
+} 
