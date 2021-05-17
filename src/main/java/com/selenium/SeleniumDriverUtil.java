@@ -10,6 +10,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SeleniumDriverUtil {
 	
+	private WebDriver _driver;
+	
+	public SeleniumDriverUtil() {
+		_driver = launchDriver();
+	}
+	
 	public static WebDriver launchDriver() {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
@@ -17,19 +23,29 @@ public class SeleniumDriverUtil {
 		return driver;
 	}
 	
-	public static WebDriver launchBrowser(String url) {
-		WebDriver driver = launchDriver();
-		driver.navigate().to(url);
-		return driver;
+	public void launchBrowser(String url) {
+		_driver.navigate().to(url);
 	}
 	
-	public static WebElement findElementById(WebDriver driver, String id) {
-		WebElement element = driver.findElement(By.id(id));
+	public WebElement findElementById(String id) {
+		WebElement element = _driver.findElement(By.id(id));
 		return element;
 	}
 	
-	public static WebElement findElementByXPath(WebDriver driver, String xpath) {
-		WebElement element = driver.findElement(By.xpath(xpath));
+	public WebElement findElementByXPath(String xpath) {
+		WebElement element = _driver.findElement(By.xpath(xpath));
 		return element;
+	}
+	
+	public void quitDriver() {
+		_driver.quit();
+	}
+
+	public WebDriver get_driver() {
+		return _driver;
+	}
+
+	public void set_driver(WebDriver _driver) {
+		this._driver = _driver;
 	}
 }	

@@ -12,27 +12,26 @@ public class SeleniumTest {
 	public void canLaunchBrowser() {
 
 		String url = "https://demoqa.com/";
+		
+		SeleniumDriverUtil seleniumDriverUtil = new SeleniumDriverUtil();
 
-		WebDriver driver = SeleniumDriverUtil.launchBrowser(url);
-		assertEquals(driver.getCurrentUrl(), url);
-		driver.quit();
-	}
+		seleniumDriverUtil.launchBrowser(url);
+		assertEquals(seleniumDriverUtil.get_driver().getCurrentUrl(), url);
+		seleniumDriverUtil.quitDriver();
+	}	
 
 	@Test
-	public void canClickButtonAndGetResult() {
+	public void canClickButtonAndGetResult() { 
 
 		String url = "https://demoqa.com/buttons";
 		String xpath = "//button[text()='Click Me']";
 		String id = "dynamicClickMessage";
-
-		WebDriver driver = SeleniumDriverUtil.launchBrowser(url);
 		
 		ButtonPage buttonPage = new ButtonPage();
 		
-		String message = buttonPage.clickButtonAndGetText(driver, xpath, id);
+		String message = buttonPage.clickButtonAndGetText(xpath, id, url);
 
 		assertEquals(message, "You have done a dynamic click");
-		driver.quit();
 	}
 
 }

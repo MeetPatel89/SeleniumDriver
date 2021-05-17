@@ -4,13 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ButtonPage {
-	public String clickButtonAndGetText(WebDriver driver, String xpath, String id) {
+	
+	public String clickButtonAndGetText(String xpath, String id, String url) {
 		
-		WebElement button = SeleniumDriverUtil.findElementByXPath(driver, xpath);
+		SeleniumDriverUtil seleniumDriverUtil = new SeleniumDriverUtil();
+		
+		seleniumDriverUtil.launchBrowser(url);
+		
+		WebElement button = seleniumDriverUtil.findElementByXPath(xpath);
 		button.click();
 
-		WebElement element = SeleniumDriverUtil.findElementById(driver, id);
+		WebElement element = seleniumDriverUtil.findElementById(id);
 		String message = element.getText();
+		
+		seleniumDriverUtil.quitDriver();
 		
 		return message;
 	}
