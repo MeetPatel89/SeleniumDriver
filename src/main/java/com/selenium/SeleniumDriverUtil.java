@@ -25,6 +25,7 @@ public class SeleniumDriverUtil {
 
 	public void launchBrowser(String url) {
 		_driver.get(url);
+		_driver.manage().window().maximize();
 	}
 
 	public WebElement findElementById(String id) {
