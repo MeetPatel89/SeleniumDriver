@@ -18,44 +18,45 @@ public class DemoQATest {
 		String url = "https://demoqa.com/";
 
 		_seleniumDriverUtil.launchBrowser(url);
-		
+
 		assertEquals(_seleniumDriverUtil.get_driver().getCurrentUrl(), url);
-		
-	}	
+
+	}
 
 	@Test
-	public void canClickButtonAndGetResult() { 
+	public void canClickButtonAndGetResult() {
 
 		String url = "https://demoqa.com/buttons";
 		String xpath = "//button[text()='Click Me']";
 		String id = "dynamicClickMessage";
-		
+
 		ButtonPage buttonPage = new ButtonPage(_seleniumDriverUtil);
 		String message = buttonPage.clickButtonAndGetText(xpath, id, url);
 
 		assertEquals(message, "You have done a dynamic click");
 	}
-	
+
 	@Test
 	public void canDoubleClickButtonAndGetResult() {
-		
+
 		String url = "https://demoqa.com/buttons";
 		String buttonId = "doubleClickBtn";
 		String textId = "doubleClickMessage";
-		
+
 		ButtonPage buttonPage = new ButtonPage(_seleniumDriverUtil);
 		String message = buttonPage.doubleClickButtonGetText(buttonId, textId, url);
 	}
-	
+
 	@BeforeTest
 	public void setUp() {
+		System.out.println(_seleniumDriverUtil);
 		_seleniumDriverUtil = new SeleniumDriverUtil();
-	}	
-	
+	}
+
 	@AfterTest
 	public void cleanUp() {
 		_seleniumDriverUtil.quitDriver();
-			
+
 	}
 
 }
