@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class SeleniumTest {
+public class DemoQATest {
 
 	private SeleniumDriverUtil _seleniumDriverUtil;
 
