@@ -16,7 +16,7 @@ public class SeleniumDriverUtil {
 		_driver = launchDriver();
 	}
 	
-	public WebDriver launchDriver() {
+	public static WebDriver launchDriver() {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		WebDriver driver = new ChromeDriver(options);
