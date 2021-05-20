@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class Guru99HomePage {
 	WebDriver driver;
-	By homePageUserName = By.xpath("//td[text()='Manager Id : mngr327777']");
+	By homePageUserName = By.xpath("//td[text()='Manger Id : mngr327777']");
 	
 	public Guru99HomePage(WebDriver driver) {
 		this.driver = driver;
