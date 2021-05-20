@@ -12,8 +12,7 @@ public class Guru99HomePage {
 		this.driver = driver;
 	}
 	
-	//Get the user name from home page
 	public WebElement getTableElementWithUserNameText() {
 		return driver.findElement(homePageUserName);
-	}	
+	}
 }
